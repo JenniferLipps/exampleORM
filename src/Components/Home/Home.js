@@ -16,6 +16,12 @@ class Home extends Component {
       console.log("broken", error)
     })
   }
+  
+  showAllValues = () => {
+    const myValues = [...this.state.displayValues];
+    
+    return myValues.map(value => <div>{value}</div>);
+  };
 
   render () {
     const testText = this.props.testText;
@@ -23,6 +29,7 @@ class Home extends Component {
       <div className="Home">
           <h1 className="testTarget">{testText}</h1>
           <button onClick = {this.getValues}>Click Me</button>
+          {this.showAllValues()}
       </div>
     );
   }
